@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: dev
+resources:
+  - ../../base
+images:
+  - name: app-frontend
+    newName: localhost:5010/app-frontend
+    newTag: latest
+patches:
+  - target:
+      kind: Deployment
+      name: mosquitto
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/env
+        value:
+          - name: ENV
+            value: "dev"
+  - target:
+      kind: Deployment
+      name: frontend
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 1
