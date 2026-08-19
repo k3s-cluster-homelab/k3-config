@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/DEIN-USER/k3-config.git
+    repoURL: https://github.com/k3s-cluster-homelab/k3-config.git
     targetRevision: develop
     path: overlays/dev
   destination:
