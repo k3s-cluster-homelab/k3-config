@@ -5,7 +5,7 @@ resources:
   - ../../base
 images:
   - name: app-frontend
-    newName: localhost:5010/app-frontend
+    newName: localhost:5010/image/app-frontend
     newTag: latest
 patches:
   - target:
