@@ -5,8 +5,8 @@ resources:
   - ../../base
 images:
   - name: app-frontend
-    newName: localhost:5010/image/app-frontend
-    newTag: latest
+    newName: 192.168.178.103:5010/app-frontend
+    newTag: dev
 patches:
   - target:
       kind: Deployment
