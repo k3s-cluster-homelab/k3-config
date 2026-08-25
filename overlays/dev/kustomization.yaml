@@ -6,7 +6,13 @@ resources:
   - ../../base
 images:
   - name: app-frontend
-    newName: localhost:5010/app-frontend
+    newName: 192.168.178.183:5010/app-frontend
+    newTag: dev
+  - name: hauswerk-firmware
+    newName: 192.168.178.183:5010/hauswerk-firmware
+    newTag: dev
+  - name: esp32-flasher
+    newName: 192.168.178.183:5010/esp32-flasher
     newTag: latest
 patches:
   - target:
@@ -25,3 +31,10 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 1
+  - target:
+      kind: Job
+      name: esp32-firmware-flasher
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "Hauswasserwerk.local"

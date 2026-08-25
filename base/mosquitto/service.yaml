@@ -12,7 +12,7 @@ spec:
     - name: mqtt
       port: 1883
       targetPort: 1883
-      nodePort: 31883
+      nodePort: 31884
     - name: websockets
       port: 9001
       targetPort: 9001

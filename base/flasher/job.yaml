@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: esp32-firmware-flasher
+  labels:
+    app: esp32-flasher
+  annotations:
+    # ArgoCD Sync Hook: Wird automatisch bei jedem Sync/Deployment ausgeführt
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  ttlSecondsAfterFinished: 300
+  backoffLimit: 2
+  template:
+    metadata:
+      labels:
+        app: esp32-flasher
+    spec:
+      hostNetwork: true
+      restartPolicy: OnFailure
+      initContainers:
+        - name: extract-firmware
+          image: hauswerk-firmware:latest
+          command: ["sh", "-c", "cp /firmware/firmware.bin /data/firmware.bin"]
+          volumeMounts:
+            - name: shared-data
+              mountPath: /data
+      containers:
+        - name: flasher
+          image: esp32-flasher:latest
+          args:
+            - "--host"
+            - "$(ESP32_IP)"
+            - "--firmware"
+            - "/data/firmware.bin"
+          env:
+            - name: ESP32_IP
+              value: "Hauswasserwerk.local"
+          volumeMounts:
+            - name: shared-data
+              mountPath: /data
+      volumes:
+        - name: shared-data
+          emptyDir: {}
