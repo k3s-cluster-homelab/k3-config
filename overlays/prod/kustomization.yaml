@@ -5,8 +5,14 @@ resources:
   - ../../base
 images:
   - name: app-frontend
-    newName: localhost:5010/app-frontend
+    newName: 192.168.178.183:5010/app-frontend
     newTag: stable
+  - name: hauswerk-firmware
+    newName: 192.168.178.183:5010/hauswerk-firmware
+    newTag: stable
+  - name: esp32-flasher
+    newName: 192.168.178.183:5010/esp32-flasher
+    newTag: latest
 patches:
   - target:
       kind: Deployment
@@ -22,3 +28,10 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/resources/limits/memory
         value: "128Mi"
+  - target:
+      kind: Job
+      name: esp32-firmware-flasher
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "Hauswasserwerk.local"
