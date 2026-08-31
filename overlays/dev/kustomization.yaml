@@ -9,7 +9,7 @@ images:
     newTag: bfe165d
   - name: hauswerk-firmware
     newName: 192.168.178.183:5010/hauswerk-firmware
-    newTag: 15ccbd5
+    newTag: 0c255b7
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
     newTag: 53dc0e2
