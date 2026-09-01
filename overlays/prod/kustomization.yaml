@@ -13,6 +13,9 @@ images:
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
     newTag: latest
+  - name: deployment-dashboard
+    newName: 192.168.178.183:5010/deployment-dashboard
+    newTag: stable
 patches:
   - target:
       kind: Deployment
