@@ -31,10 +31,4 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 1
-  - target:
-      kind: Job
-      name: esp32-firmware-flasher
-    patch: |
-      - op: replace
-        path: /spec/template/spec/containers/0/env/0/value
-        value: "Hauswasserwerk.local"
+

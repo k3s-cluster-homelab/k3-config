@@ -4,10 +4,10 @@ metadata:
   name: esp32-firmware-flasher
   labels:
     app: esp32-flasher
-  annotations:
-    # ArgoCD Sync Hook: Wird automatisch bei jedem Sync/Deployment ausgeführt
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+  # Manuelles On-Demand-Job: Kein automatischer Sync-Hook, um PROD vor versehentlichem Flashen zu schuetzen
+  # annotations:
+  #   argocd.argoproj.io/hook: Sync
+  #   argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   ttlSecondsAfterFinished: 300
   backoffLimit: 2
@@ -35,7 +35,7 @@ spec:
             - "/data/firmware.bin"
           env:
             - name: ESP32_IP
-              value: "Hauswasserwerk.local"
+              value: "192.168.177.28"
           volumeMounts:
             - name: shared-data
               mountPath: /data

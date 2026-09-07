@@ -29,10 +29,4 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/resources/limits/memory
         value: "128Mi"
-  - target:
-      kind: Job
-      name: esp32-firmware-flasher
-    patch: |
-      - op: replace
-        path: /spec/template/spec/containers/0/env/0/value
-        value: "Hauswasserwerk.local"
+
