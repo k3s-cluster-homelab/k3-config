@@ -2,17 +2,19 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: prod
 resources:
-  - namespace.yaml
   - ../../base
 images:
   - name: app-frontend
     newName: 192.168.178.183:5010/app-frontend
-    newTag: latest
+    newTag: 75a8ccc
   - name: hauswerk-firmware
     newName: 192.168.178.183:5010/hauswerk-firmware
     newTag: stable
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
+    newTag: latest
+  - name: deployment-dashboard
+    newName: 192.168.178.183:5010/deployment-dashboard
     newTag: latest
 patches:
   - target:

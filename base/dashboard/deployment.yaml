@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-dashboard
+  labels:
+    app: deployment-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deployment-dashboard
+  template:
+    metadata:
+      labels:
+        app: deployment-dashboard
+    spec:
+      containers:
+        - name: dashboard
+          image: deployment-dashboard:latest
+          ports:
+            - containerPort: 80
+              name: http
+          resources:
+            requests:
+              memory: "32Mi"
+            limits:
+              memory: "64Mi"
