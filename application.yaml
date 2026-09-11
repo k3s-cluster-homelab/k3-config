@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/k3s-cluster-homelab/k3-config.git
-    targetRevision: develop
+    targetRevision: main
     path: overlays/dev
   destination:
     server: https://kubernetes.default.svc

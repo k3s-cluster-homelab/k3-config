@@ -2,17 +2,19 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: dev
 resources:
-  - namespace.yaml
   - ../../base
 images:
   - name: app-frontend
     newName: 192.168.178.183:5010/app-frontend
-    newTag: dev
+    newTag: 3ef00f8
   - name: hauswerk-firmware
     newName: 192.168.178.183:5010/hauswerk-firmware
-    newTag: dev
+    newTag: f88a443
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
+    newTag: 62cfcaa
+  - name: deployment-dashboard
+    newName: 192.168.178.183:5010/deployment-dashboard
     newTag: latest
 patches:
   - target:
@@ -31,4 +33,28 @@ patches:
       - op: replace
         path: /spec/replicas
         value: 1
+  - target:
+      kind: Service
+      name: frontend
+    patch: |
+      - op: replace
+        path: /spec/ports/0/nodePort
+        value: 30081
+  - target:
+      kind: Service
+      name: mosquitto
+    patch: |
+      - op: replace
+        path: /spec/ports/0/nodePort
+        value: 31885
+      - op: replace
+        path: /spec/ports/1/nodePort
+        value: 32003
+  - target:
+      kind: Service
+      name: deployment-dashboard
+    patch: |
+      - op: replace
+        path: /spec/ports/0/nodePort
+        value: 30091
 
