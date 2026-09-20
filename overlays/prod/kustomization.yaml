@@ -6,10 +6,10 @@ resources:
 images:
   - name: app-frontend
     newName: 192.168.178.183:5010/app-frontend
-    newTag: 75a8ccc
+    newTag: 3ef00f8
   - name: hauswerk-firmware
     newName: 192.168.178.183:5010/hauswerk-firmware
-    newTag: stable
+    newTag: latest
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
     newTag: latest
