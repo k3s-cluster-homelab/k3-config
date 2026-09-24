@@ -64,4 +64,18 @@ patches:
       - op: replace
         path: /spec/template/spec/containers/0/env/0/value
         value: "192.168.177.49"
+  - target:
+      kind: Deployment
+      name: esp32-bridge
+    patch: |
+      - op: replace
+        path: /spec/template/spec/containers/0/env/0/value
+        value: "192.168.177.49"
+      - op: replace
+        path: /spec/template/spec/containers/0/env/2/value
+        value: "31885"
+      - op: replace
+        path: /spec/template/spec/containers/0/env/3/value
+        value: "hauswasserwerk-esp32-dev"
+
 
