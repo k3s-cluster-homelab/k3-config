@@ -4,6 +4,6 @@ resources:
   - mosquitto
   - frontend
   - dashboard
-  - bridge
+
 
 
