@@ -63,7 +63,8 @@ patches:
     patch: |
       - op: replace
         path: /spec/template/spec/containers/0/env/0/value
-        value: "192.168.177.49"
+        value: "192.168.177.50"
+
 
 
 
