@@ -6,7 +6,7 @@ resources:
 images:
   - name: app-frontend
     newName: 192.168.178.183:5010/app-frontend
-    newTag: 7e61d9c
+    newTag: 06555d8
   - name: hauswerk-firmware
     newName: 192.168.178.183:5010/hauswerk-firmware
     newTag: 418f12c
