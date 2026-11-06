@@ -12,7 +12,7 @@ images:
     newTag: dev
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
-    newTag: 62cfcaa
+    newTag: 7e2f79b
   - name: deployment-dashboard
     newName: 192.168.178.183:5010/deployment-dashboard
     newTag: latest
