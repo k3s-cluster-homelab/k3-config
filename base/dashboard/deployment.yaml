@@ -17,6 +17,7 @@ spec:
       containers:
         - name: dashboard
           image: deployment-dashboard:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
               name: http
