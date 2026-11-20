@@ -57,13 +57,6 @@ patches:
       - op: replace
         path: /spec/ports/0/nodePort
         value: 30091
-  - target:
-      kind: Job
-      name: esp32-firmware-flasher
-    patch: |
-      - op: replace
-        path: /spec/template/spec/containers/0/env/0/value
-        value: "192.168.177.49"
 
 
 
