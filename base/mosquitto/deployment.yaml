@@ -22,6 +22,16 @@ spec:
               name: mqtt
             - containerPort: 9001
               name: websockets
+          readinessProbe:
+            tcpSocket:
+              port: 1883
+            initialDelaySeconds: 3
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 1883
+            initialDelaySeconds: 10
+            periodSeconds: 20
           resources:
             requests:
               memory: "32Mi"
