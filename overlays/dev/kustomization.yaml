@@ -10,7 +10,7 @@ images:
   # Firmware- und Flasher-Tags dienen hier als GitOps-Status für deploy.yml und das Deployment-Dashboard
   - name: hauswerk-firmware
     newName: 192.168.178.183:5010/hauswerk-firmware
-    newTag: 0abc671
+    newTag: 28a3960
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
     newTag: 295fd6c
