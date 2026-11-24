@@ -6,17 +6,17 @@ resources:
 images:
   - name: app-frontend
     newName: 192.168.178.183:5010/app-frontend
-    newTag: 0778e28
+    newTag: "0778e28"
   # Firmware- und Flasher-Tags dienen hier als GitOps-Status für deploy.yml und das Deployment-Dashboard
   - name: hauswerk-firmware
     newName: 192.168.178.183:5010/hauswerk-firmware
-    newTag: 28a3960
+    newTag: "28a3960"
   - name: esp32-flasher
     newName: 192.168.178.183:5010/esp32-flasher
-    newTag: 295fd6c
+    newTag: "295fd6c"
   - name: deployment-dashboard
     newName: 192.168.178.183:5010/deployment-dashboard
-    newTag: latest
+    newTag: "latest"
 patches:
   - target:
       kind: Deployment
