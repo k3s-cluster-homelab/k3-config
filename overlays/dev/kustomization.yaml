@@ -20,15 +20,6 @@ images:
 patches:
   - target:
       kind: Deployment
-      name: mosquitto
-    patch: |
-      - op: add
-        path: /spec/template/spec/containers/0/env
-        value:
-          - name: ENV
-            value: "dev"
-  - target:
-      kind: Deployment
       name: frontend
     patch: |
       - op: replace
@@ -58,7 +49,3 @@ patches:
       - op: replace
         path: /spec/ports/0/nodePort
         value: 30091
-
-
-
-
